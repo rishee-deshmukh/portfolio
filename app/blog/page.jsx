@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Blog — Rishee Deshmukh',
   description: 'Technical writing on software engineering, AI systems, and building things.',

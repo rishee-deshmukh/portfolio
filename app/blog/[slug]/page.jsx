@@ -1,12 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { compileMDX } from 'next-mdx-remote/rsc'
-import { getAllPosts, getPost } from '@/lib/posts'
+import { getPost } from '@/lib/posts'
 
-export async function generateStaticParams() {
-  const posts = getAllPosts()
-  return posts.map(post => ({ slug: post.slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }) {
   const post = getPost(params.slug)
