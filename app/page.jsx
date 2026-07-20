@@ -360,9 +360,8 @@ function About(){
   return(
     <section id="about" className="snap-section dot-grid" style={{minHeight:"100vh",display:"flex",flexDirection:"column",
       padding:m?"80px 24px 40px":"clamp(80px,12vh,120px) 60px clamp(40px,5vh,60px)",background:t.bg}}>
-      <div style={{maxWidth:"1000px",margin:"0 auto",width:"100%",flex:1,display:"flex",flexDirection:"column"}}>
+      <div style={{maxWidth:"1000px",margin:"0 auto",width:"100%",flex:1,display:"flex",flexDirection:"column",justifyContent:"center",gap:"clamp(28px,4vh,48px)"}}>
       <SectionHeader subtitle="Where I come from.">About</SectionHeader>
-      <div style={{flex:1,display:"flex",flexDirection:"column",justifyContent:"center",gap:"clamp(24px,4vh,48px)"}}>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:"clamp(20px,3vw,48px)"}}>
           <Reveal delay={0.6} blur>
             <p style={{fontFamily:"'Aileron',sans-serif",fontSize:"clamp(15px,1.8vw,19px)",lineHeight:1.85,color:t.textBody}}>
@@ -384,7 +383,6 @@ function About(){
               </div>))}
           </div>
         </Reveal>
-      </div>
       </div>
     </section>);
 }
@@ -562,7 +560,7 @@ function Contact(){
     if(honey){setStatus("sent");return}
     if(submitCount>=2){return}
     setStatus("sending");
-    try{const res=await fetch("https://formspree.io/f/mjgnwjpv",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...form,_gotcha:honey})});
+    try{const res=await fetch("https://formspree.io/f/YOUR_FORM_ID",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...form,_gotcha:honey})});
       if(res.ok){const nc=submitCount+1;setSubmitCount(nc);try{localStorage.setItem("rd_contact_count",String(nc))}catch(e){}setStatus("sent");setForm({name:"",email:"",phone:"",message:""})}else{setStatus("error")}
     }catch(err){setStatus("error")}};
   const locked=submitCount>=2;
