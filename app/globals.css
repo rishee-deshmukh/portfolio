@@ -1,0 +1,40 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/aileron');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (min-width: 769px) {
+  html { scroll-snap-type: y mandatory; }
+  .snap-section { scroll-snap-align: start; scroll-snap-stop: always; }
+}
+
+@keyframes orbFloat1 { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(-40px,30px) scale(1.08); } 66% { transform: translate(30px,-20px) scale(0.95); } }
+@keyframes orbFloat2 { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(50px,-30px) scale(1.1); } 66% { transform: translate(-30px,40px) scale(0.92); } }
+@keyframes orbFloat3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-60px,-40px); } }
+@keyframes orbFloat4 { 0%,100% { transform: translate(0,0) scale(1); } 40% { transform: translate(60px,40px) scale(1.06); } 80% { transform: translate(-30px,-20px) scale(0.94); } }
+@keyframes orbFloat5 { 0%,100% { transform: translate(0,0); } 30% { transform: translate(-50px,30px); } 70% { transform: translate(40px,-50px); } }
+
+.hero-grain { position: relative; }
+.hero-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+@keyframes wordRevealUp { from { transform: translateY(110%) rotate(2deg); opacity: 0; } to { transform: translateY(0) rotate(0deg); opacity: 1; } }
+@keyframes scrollBounce { 0%,100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(12px); opacity: 0.3; } }
+@keyframes cursorBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes fileFromRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes fileFromLeft { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalScaleIn { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes dotBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes rainbowBorder { 0%,100% { border-color: #FF5F57; } 25% { border-color: #FEBC2E; } 50% { border-color: #28C840; } 75% { border-color: #9B5DE5; } }
+
+.carousel-word-reveal { animation: wordRevealUp 0.55s cubic-bezier(0.16,1,0.3,1) forwards; opacity: 0; transform: translateY(110%); }
