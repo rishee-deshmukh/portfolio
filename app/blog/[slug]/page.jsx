@@ -27,16 +27,16 @@ function Markdown({ content }) {
       return <pre key={i} style={{margin:'0 0 20px'}}><code style={{display:'block',background:'#1B1B1B',color:'#e4e0d8',padding:'20px 24px',borderRadius:'10px',fontSize:'14px',fontFamily:"'JetBrains Mono',monospace",lineHeight:1.7,overflowX:'auto'}}>{code}</code></pre>
     }
     if (b.split('\n').every(l => l.trim().startsWith('- '))) {
-      return <ul key={i} style={{fontSize:'17px',color:'#4A4A4A',lineHeight:1.85,margin:'0 0 20px',paddingLeft:'24px'}}>
+      return <ul key={i} style={{fontSize:'17px',color:'#4A4A4A',lineHeight:1.85,margin:'0 0 20px',textAlign:'justify',paddingLeft:'24px'}}>
         {b.split('\n').map((l,j) => <li key={j} style={{margin:'0 0 8px'}}>{renderInline(l.trim().slice(2))}</li>)}
       </ul>
     }
     if (b.split('\n').every(l => /^\d+\.\s/.test(l.trim()))) {
-      return <ol key={i} style={{fontSize:'17px',color:'#4A4A4A',lineHeight:1.85,margin:'0 0 20px',paddingLeft:'24px'}}>
+      return <ol key={i} style={{fontSize:'17px',color:'#4A4A4A',lineHeight:1.85,margin:'0 0 20px',textAlign:'justify',paddingLeft:'24px'}}>
         {b.split('\n').map((l,j) => <li key={j} style={{margin:'0 0 8px'}}>{renderInline(l.trim().replace(/^\d+\.\s/,''))}</li>)}
       </ol>
     }
-    return <p key={i} style={{fontSize:'17px',color:'#4A4A4A',lineHeight:1.85,margin:'0 0 20px'}}>{renderInline(b)}</p>
+    return <p key={i} style={{fontSize:'17px',color:'#4A4A4A',lineHeight:1.85,margin:'0 0 20px',textAlign:'justify'}}>{renderInline(b)}</p>
   })
 }
 
