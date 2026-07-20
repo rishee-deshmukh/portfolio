@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  outputFileTracingIncludes: {
-    '/blog': ['./content/posts/**/*'],
-    '/blog/*': ['./content/posts/**/*'],
-  },
   async headers() {
     return [
       {
