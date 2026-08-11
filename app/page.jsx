@@ -70,7 +70,7 @@ function useDayNight() {
     navigator.geolocation.getCurrentPosition(pos=>{
       const{sunrise,sunset}=calcSunTimes(pos.coords.latitude,pos.coords.longitude);
       const n=new Date(),u=n.getUTCHours()+n.getUTCMinutes()/60;
-      setDark(u<sunrise||u>=sunset);
+      if(sunset>sunrise){setDark(u<sunrise||u>=sunset)}else{setDark(u>=sunset&&u<sunrise)};
     },fb,{timeout:4000});
   },[]);
   return dark;
