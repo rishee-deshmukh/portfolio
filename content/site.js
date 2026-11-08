@@ -230,7 +230,6 @@ export const SKILLS = [
   { group: "Blockchain and desktop", items: "Ethereum, smart contracts, Web3.js, Qt" },
 ];
 
-// TODO(owner): confirm or rewrite. Drafted from the previous version of the site.
 export const OFF_THE_CLOCK = {
-  text: "Away from the keyboard I play guitar, compete in games, and rewatch comforting shows more often than I'd admit. I think the best engineers stay curious outside their editor.",
+  text: "I'm a better engineer when I'm not only an engineer. Guitar, competitive gaming, anime and comfort rewatches keep me curious, and keep me balanced.",
 };
