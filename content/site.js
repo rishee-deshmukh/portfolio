@@ -12,7 +12,7 @@ export const SITE = {
   resume: "/resume.pdf",
   // Formspree form ID (the part after /f/). Leave empty until the form exists;
   // the contact section then shows email only, so nothing is ever broken.
-  formspreeId: "",
+  formspreeId: "mjgnwjpv",
   description:
     "Rishee Deshmukh is a software engineer with an M.S. in Computer Science from Syracuse University, working on backend and cloud systems (Go, AWS), full-stack web, security and AI.",
 };
