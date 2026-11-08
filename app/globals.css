@@ -128,7 +128,9 @@ img { display: block; max-width: 100%; height: auto; }
   border-bottom: 1px solid var(--line);
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
-.logo { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; text-decoration: none; letter-spacing: -0.05em; }
+.logo { display: inline-flex; align-items: center; line-height: 0; border-radius: 10px; }
+.logo svg { height: 38px; width: auto; display: block; transition: transform 0.2s ease; }
+.logo:hover svg { transform: translateY(-1px); }
 .nav { display: flex; align-items: center; gap: var(--space-5); font-size: 0.9375rem; }
 .nav a { text-decoration: none; color: var(--muted); padding: var(--space-2) 0; }
 .nav a:hover { color: var(--ink); text-decoration: underline; }
@@ -163,22 +165,15 @@ img { display: block; max-width: 100%; height: auto; }
 .lede { font-size: clamp(1.125rem, 2vw, 1.375rem); line-height: 1.5; letter-spacing: -0.01em; color: var(--muted); max-width: 34rem; margin-top: var(--space-5); }
 .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 
-/* Portrait: an arch (a nod to the doorway in the palette's reference
-   photos) with an offset caramel outline, and a warm tint so the cool
-   studio backdrop sits inside the palette. */
-.portrait-wrap { --pw: 190px; position: relative; width: var(--pw); margin: 0 14px 14px 0; isolation: isolate; }
-.portrait-wrap::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  border: 1.5px solid var(--accent);
-  border-radius: calc(var(--pw) / 2) calc(var(--pw) / 2) 14px 14px;
-  transform: translate(14px, 14px);
-}
+/* Portrait: a cutout on a caramel arch plate (the arch echoes the doorway in
+   the palette's reference photos), so the photo's studio backdrop never
+   clashes with the page. */
+.portrait-wrap { --pw: 224px; width: var(--pw); }
 .portrait {
-  position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: var(--accent);
-  border-radius: calc(var(--pw) / 2) calc(var(--pw) / 2) 14px 14px;
+  overflow: hidden; aspect-ratio: 4 / 5; background: var(--accent);
+  border-radius: calc(var(--pw) / 2) calc(var(--pw) / 2) 20px 20px;
 }
-.portrait img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.22) saturate(0.92) contrast(1.02); }
-.portrait::after { content: ""; position: absolute; inset: 0; background: var(--accent); mix-blend-mode: soft-light; opacity: 0.45; pointer-events: none; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
 
 /* Buttons: pill-shaped, icon + label */
 .btn {
@@ -202,7 +197,7 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 760px) {
   .hero { padding-block: var(--space-6) var(--space-6); }
   .hero-grid { grid-template-columns: 1fr; }
-  .portrait-wrap { --pw: 124px; order: -1; }
+  .portrait-wrap { --pw: 136px; order: -1; }
   .proof { grid-template-columns: 1fr; gap: var(--space-4); }
 }
 
@@ -260,15 +255,15 @@ img { display: block; max-width: 100%; height: auto; }
 .band-links { display: grid; gap: var(--space-4); align-content: start; font-size: 1.0625rem; justify-items: start; }
 .band-links a { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
 .band-links a:hover span { text-decoration: underline; text-underline-offset: 0.25em; }
-.band-links .email { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2.4vw, 1.6rem); letter-spacing: -0.025em; word-break: break-word; }
-.band-links .icon { width: 1.25em; height: 1.25em; }
+.band-links .email { word-break: break-word; }
+.band-links .icon { width: 1.2em; height: 1.2em; }
 .band .muted { color: var(--band-muted); }
 @media (max-width: 760px) { .band-grid { grid-template-columns: 1fr; gap: var(--space-6); } }
 
 /* Contact form: a single panel, filled fields, soft focus ring */
 .form-panel {
   background: rgba(242, 232, 217, 0.05);
-  border: 1px solid rgba(242, 232, 217, 0.14);
+  border: 0;
   border-radius: 24px;
   padding: clamp(20px, 3vw, 32px);
 }

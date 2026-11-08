@@ -45,12 +45,12 @@ export default function Home() {
             <div className="portrait-wrap">
               <div className="portrait">
                 <Image
-                  src="/portrait.webp"
+                  src="/portrait-cutout.webp"
                   alt="Portrait of Rishee Deshmukh"
                   width={720}
                   height={900}
                   priority
-                  sizes="(max-width: 760px) 124px, 190px"
+                  sizes="(max-width: 760px) 136px, 224px"
                 />
               </div>
             </div>
