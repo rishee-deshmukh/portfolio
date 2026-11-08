@@ -2,8 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from '@/components/Icons'
 import {
-  SITE, INTRO, PROJECTS, ALSO, EXPERIENCE, EDUCATION, SKILLS, OFF_THE_CLOCK,
+  SITE, INTRO, PROJECTS, EXPERIENCE, EDUCATION, SKILLS, OFF_THE_CLOCK,
 } from '@/content/site'
 
 const personLd = {
@@ -31,25 +32,27 @@ export default function Home() {
             <div>
               <p className="label">{INTRO.eyebrow}</p>
               <h1 id="top" className="display">
-                Rishee <br /><em>Deshmukh</em>
+                Rishee <br /><span className="second">Deshmukh</span>
               </h1>
               <p className="lede">{INTRO.lede}</p>
               <div className="actions">
-                <a className="btn btn-primary" href={SITE.resume} download>Download résumé</a>
-                <a className="btn" href={`mailto:${SITE.email}`}>Email</a>
-                <a className="btn" href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a className="btn" href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a className="btn btn-primary" href={SITE.resume} download><DownloadIcon />Download résumé</a>
+                <a className="btn" href={`mailto:${SITE.email}`}><MailIcon />Email</a>
+                <a className="btn" href={SITE.github} target="_blank" rel="noopener noreferrer"><GitHubIcon />GitHub</a>
+                <a className="btn" href={SITE.linkedin} target="_blank" rel="noopener noreferrer"><LinkedInIcon />LinkedIn</a>
               </div>
             </div>
-            <div className="portrait">
-              <Image
-                src="/portrait.webp"
-                alt="Portrait of Rishee Deshmukh"
-                width={720}
-                height={900}
-                priority
-                sizes="(max-width: 760px) 112px, 180px"
-              />
+            <div className="portrait-wrap">
+              <div className="portrait">
+                <Image
+                  src="/portrait.webp"
+                  alt="Portrait of Rishee Deshmukh"
+                  width={720}
+                  height={900}
+                  priority
+                  sizes="(max-width: 760px) 124px, 190px"
+                />
+              </div>
             </div>
           </div>
           <ul className="proof">
@@ -86,9 +89,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-          <p className="also reveal">
-            Also: <strong>{ALSO.title}</strong> ({ALSO.year}). {ALSO.text}
-          </p>
         </div>
       </section>
 

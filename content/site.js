@@ -34,7 +34,7 @@ export const PROJECTS = [
     year: "2026",
     tag: "v1 and v2",
     summary:
-      "Parallel LangGraph agents plus static analysers (Semgrep, Bandit, Ruff, ESLint). Built twice: a first version, then a rebuild with a baseline evaluation.",
+      "Parallel LangGraph agents plus static analysers (Semgrep, Bandit, Ruff, ESLint). Built twice: a first version that reached 90% recall, then a rebuild with a controlled evaluation of what the multi-agent design really adds.",
     stack: ["Python", "FastAPI", "LangGraph", "React", "TypeScript", "Supabase", "Semgrep", "Bandit", "Ruff", "ESLint"],
     links: [
       { label: "v2 repository on GitHub", href: "https://github.com/rishee-deshmukh/Multi-Agent-Code-Review-System" },
@@ -47,7 +47,7 @@ export const PROJECTS = [
         ],
       },
       {
-        heading: "Version 1 (January to May 2026)",
+        heading: "Version 1: build it, measure it",
         bullets: [
           "LangGraph fan-out/fan-in pipeline: three specialist agents on Claude Haiku 4.5 and a Claude Sonnet 4.6 synthesizer for deduplication and gap analysis.",
           "Static analysis (Semgrep, Bandit, Ruff, ESLint) combined with LLM semantic reasoning.",
@@ -57,19 +57,31 @@ export const PROJECTS = [
           { value: "90%", label: "recall on 30 labeled issues (27 of 30)" },
           { value: "52.3 s", label: "average processing time per file" },
         ],
-        note: "27 of 30 includes 5 performance issues: 22 of 25 security issues and 5 of 5 performance issues were found. The 30 labels sit on 20 Python and 10 JavaScript sample files.",
+        note: "27 of 30 includes 5 performance issues: 22 of 25 security issues and 5 of 5 performance issues were found. The 30 labels sit on 20 Python and 10 JavaScript sample files. January to May 2026.",
       },
       {
-        heading: "What version 1 did not show",
+        heading: "What the numbers pointed to",
         body: [
-          "Recall was only half the picture. On the same run, precision was 0.21 (102 false positives among 129 predictions), F1 was 0.34, and severity accuracy was 0.37. There was also no baseline, so there was no way to say whether four agents beat something simpler.",
+          "Recall is one side of a reviewer's job, so I looked at the rest of the same run: precision was 0.21 (102 false positives across 129 predictions), F1 was 0.34 and severity accuracy was 0.37, with no baseline to compare against.",
+          "Those figures set the agenda for version 2: measure precision properly, and test whether four agents earn their cost against simpler approaches.",
         ],
       },
       {
-        heading: "Version 2: an honest evaluation",
+        heading: "Version 2: a controlled evaluation",
         body: [
-          "The rebuild kept the pipeline but treated evaluation as the main deliverable. Four systems were scored on a held-out set of 67 files (56 labeled issues, 14 clean files): static tools only, a single LLM prompt, the multi-agent graph without tools, and the full system.",
-          "The result was not flattering and is reported as is: a single prompt (F1 0.70) and the static tools alone (F1 0.68) matched or beat the full multi-agent pipeline (F1 0.37), which found about as much but reported about three false alarms per clean file. The repository documents the protocol, the caveats (one labeler, small synthetic set) and the next experiments.",
+          "The rebuild treats evaluation as the main deliverable. Four systems were scored on a held-out set of 67 files (56 labeled issues, 14 clean files) with strict matching on file, category, vulnerability class and line: static tools only, a single LLM prompt, the multi-agent graph without static findings, and the full system.",
+          "Every model response is cached and committed, so the whole comparison replays offline with identical results (4 systems across 97 files, 0 differences).",
+        ],
+        stats: [
+          { value: "0.79", label: "recall of the full pipeline on held-out files" },
+          { value: "0.13 → 0.47+", label: "recall on performance issues: static tools alone versus the LLM systems" },
+        ],
+      },
+      {
+        heading: "What I learned",
+        body: [
+          "A single prompt (F1 0.70) and the static tools alone (F1 0.68) are strong baselines. The full pipeline (F1 0.37) found about as much, but reported roughly three findings per clean file, so precision is the open problem. The evaluation also shows where the extra agents help: they recover performance issues that static tools largely miss.",
+          "Why the pipeline is noisy is still untested. My hypothesis is that each specialist, asked to review its own domain, nearly always returns something. Letting agents return nothing, or filtering in the synthesizer, are the next experiments, and they would need a fresh held-out set. The repository documents the protocol and its limits: one labeler, a small synthetic set, one run per system.",
         ],
       },
     ],
@@ -160,13 +172,33 @@ export const PROJECTS = [
     ],
     privateNote: "Source is not public. This write-up is based on my notes and CV.",
   },
+  {
+    slug: "password-manager",
+    title: "Password manager",
+    year: "2026",
+    tag: "Desktop · Security",
+    summary:
+      "C++ desktop password manager with a Qt interface, master-password protection and libsodium-based encrypted local storage.",
+    stack: ["C++", "Qt", "CMake", "libsodium"],
+    links: [],
+    sections: [
+      {
+        heading: "What it is",
+        body: [
+          "A desktop password manager written in C++ with a Qt graphical interface, covering full credential create, read, update and delete operations on top of encrypted local storage.",
+        ],
+      },
+      {
+        heading: "Design decisions",
+        bullets: [
+          "Master-password protection and secure password generation built on libsodium cryptographic primitives.",
+          "Build system managed with CMake, with hands-on memory management and object-oriented design in a security-sensitive application.",
+        ],
+      },
+    ],
+    privateNote: "Source is not public. This write-up is based on my notes and CV.",
+  },
 ];
-
-export const ALSO = {
-  title: "Password manager",
-  year: "2026",
-  text: "C++ desktop app with a Qt interface, libsodium-based encrypted storage and CMake builds.",
-};
 
 export const EXPERIENCE = [
   {
