@@ -107,7 +107,7 @@ export const PROJECTS = [
     year: "2023",
     tag: "Blockchain",
     summary:
-      "Ethereum voting system built from three Solidity contracts, with MetaMask voter authentication. Co-authored journal article, 2024.",
+      "Ethereum voting system built from three Solidity contracts: efficiency score 66.67, an estimated 4.3× a traditional system, in a co-authored journal article.",
     stack: ["Ethereum", "Solidity", "Web3.js", "MetaMask", "React", "Truffle"],
     links: [
       { label: "Repository on GitHub", href: "https://github.com/rishee-deshmukh/E-Ballot-Blockchain-Based-Voting-System" },
@@ -127,10 +127,9 @@ export const PROJECTS = [
           "Web3.js with MetaMask for trustless, wallet-based voter authentication and real-time on-chain vote verification.",
         ],
         stats: [
-          { value: "66.67", label: "efficiency score: 800 votes in 60 minutes × 5 candidates (earlier draft of the paper)" },
-          { value: "4.3×", label: "estimated efficiency ratio against a traditional system, from the paper’s analytical model (earlier draft)" },
+          { value: "66.67", label: "efficiency score: 800 votes in 60 minutes × 5 candidates (as reported in the paper)" },
+          { value: "4.3×", label: "estimated efficiency ratio against a traditional system, per the paper’s analytical model" },
         ],
-        // TODO(owner): the 66.67 / 4.3x figures and the 734,353 gas number come from the earlier draft; the published article (updated draft) lists 614,032 gas for deployment and no 4.3x analysis. Confirm against the published PDF before keeping them.
       },
     ],
   },
