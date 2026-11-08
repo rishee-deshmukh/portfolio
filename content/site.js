@@ -23,7 +23,7 @@ export const INTRO = {
   proof: [
     { head: "Go · DynamoDB · ECS Fargate", sub: "Backend engineer at ZenZiee Corp." },
     { head: "~50% AWS cost reduction", sub: "Identified in an infrastructure cost analysis" },
-    { head: "Peer-reviewed", sub: "Blockchain e-voting system on Ethereum" },
+    { head: "Peer-reviewed", sub: "Co-authored e-voting paper, Int. J. of Electronic Governance (2024)" },
   ],
 };
 
@@ -107,16 +107,17 @@ export const PROJECTS = [
     year: "2023",
     tag: "Blockchain",
     summary:
-      "Ethereum voting system built from three Solidity contracts; 66.67 votes per minute, 4.3× traditional systems, in a peer-reviewed publication.",
+      "Ethereum voting system built from three Solidity contracts, with MetaMask voter authentication. Co-authored journal article, 2024.",
     stack: ["Ethereum", "Solidity", "Web3.js", "MetaMask", "React", "Truffle"],
     links: [
       { label: "Repository on GitHub", href: "https://github.com/rishee-deshmukh/E-Ballot-Blockchain-Based-Voting-System" },
+      { label: "Published paper (DOI)", href: "https://doi.org/10.1504/IJEG.2024.142405" },
     ],
     sections: [
       {
         heading: "What it is",
         body: [
-          "A decentralized e-voting system on Ethereum, developed as an academic project at Medi-Caps University and validated in a peer-reviewed publication.",
+          "A decentralized e-voting system on Ethereum, developed as an academic project at Medi-Caps University and published with co-authors as “Blockchain powered e-voting: a step towards transparent governance”, International Journal of Electronic Governance, vol. 16, no. 3, pp. 354–377 (2024).",
         ],
       },
       {
@@ -126,10 +127,10 @@ export const PROJECTS = [
           "Web3.js with MetaMask for trustless, wallet-based voter authentication and real-time on-chain vote verification.",
         ],
         stats: [
-          { value: "66.67", label: "votes per minute throughput" },
-          { value: "4.3×", label: "versus traditional voting systems, per the publication" },
+          { value: "66.67", label: "efficiency score: 800 votes in 60 minutes × 5 candidates (earlier draft of the paper)" },
+          { value: "4.3×", label: "estimated efficiency ratio against a traditional system, from the paper’s analytical model (earlier draft)" },
         ],
-        // TODO(owner): confirm the 4.3x comparison is stated in the paper and add a link to it.
+        // TODO(owner): the 66.67 / 4.3x figures and the 734,353 gas number come from the earlier draft; the published article (updated draft) lists 614,032 gas for deployment and no 4.3x analysis. Confirm against the published PDF before keeping them.
       },
     ],
   },
