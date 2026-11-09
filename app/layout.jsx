@@ -1,11 +1,16 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter, Newsreader } from 'next/font/google'
 import { SITE } from '@/content/site'
 import Header from '@/components/Header'
 import RevealObserver from '@/components/RevealObserver'
 
 // Fallback only: Apple devices use San Francisco through the system font stack.
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+
+// Serif used only for the hero name: it pairs with San Francisco and adds the
+// editorial note. Variable weight with the optical-size axis so large sizes
+// get the finer display cut.
+const newsreader = Newsreader({ subsets: ['latin'], display: 'swap', variable: '--font-name', axes: ['opsz'], adjustFontFallback: false })
 
 const title = `${SITE.name} — ${SITE.role}`
 
@@ -32,7 +37,7 @@ const initScript = `try{var t=localStorage.getItem('theme');if(t==='light'||t===
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
       </head>

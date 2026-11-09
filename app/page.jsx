@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <p className="lede">{INTRO.lede}</p>
           <div className="actions">
-            <a className="btn btn-primary" href={SITE.resume} download><DownloadIcon />Download résumé</a>
+            <a className="btn btn-primary" href={SITE.resume} download><DownloadIcon />Download Résumé</a>
             <a className="btn" href={`mailto:${SITE.email}`}><MailIcon />Email</a>
             <a className="btn" href={SITE.github} target="_blank" rel="noopener noreferrer"><GitHubIcon />GitHub</a>
             <a className="btn" href={SITE.linkedin} target="_blank" rel="noopener noreferrer"><LinkedInIcon />LinkedIn</a>
