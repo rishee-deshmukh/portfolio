@@ -7,7 +7,7 @@ export default function Contact() {
     <section id="contact" className="band" aria-labelledby="contact-h">
       <div className="wrap">
         <p className="label">Contact</p>
-        <h2 id="contact-h">Let’s talk.</h2>
+        <h2 id="contact-h">Let’s <em>talk</em>.</h2>
         <div className="band-grid">
           <div className="band-links">
             <a className="email" href={`mailto:${SITE.email}`}><MailIcon /><span>{SITE.email}</span></a>

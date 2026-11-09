@@ -246,6 +246,7 @@ img { display: block; max-width: 100%; height: auto; }
 .band { background: var(--band); color: var(--band-ink); padding-block: var(--space-8); }
 .band .label { color: var(--band-accent); }
 .band h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.5rem, 6.5vw, 5rem); line-height: 1; letter-spacing: -0.045em; margin-top: var(--space-3); }
+.band h2 em { font-style: italic; }
 .band-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-7); margin-top: var(--space-6); align-items: start; }
 .band a { color: var(--band-accent); }
 .band-links { display: grid; gap: var(--space-4); align-content: start; font-size: 1.0625rem; justify-items: start; }
