@@ -114,9 +114,16 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="edu">
-            <p className="label reveal" style={{ marginBottom: 'var(--space-3)' }}>Education</p>
+      <section id="education" className="section" aria-labelledby="edu-h">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <p className="label">Education</p>
+            <h2 id="edu-h">Where I studied</h2>
+          </div>
+          <div>
             {EDUCATION.map((e) => (
               <article key={e.school} className="role reveal">
                 <div className="role-dates">{e.dates}</div>
