@@ -28,8 +28,8 @@
   --band-muted: #c9b9a0;
   --band-accent: #c79e6f;
   --focus: #7a5428;
-  --logo-r: #272528;
-  --logo-g0: #a58a6c; --logo-g1: #9a7b5b; --logo-g2: #735c46; --logo-g3: #4f463e;
+  --logo-r: #2c0e11;
+  --logo-d: #b28558;
   color-scheme: light;
 
   --space-1: 4px;
@@ -58,7 +58,7 @@
     --accent-text: #c79e6f;
     --focus: #c79e6f;
     --logo-r: #f2e8d9;
-    --logo-g0: #d9b684; --logo-g1: #c79e6f; --logo-g2: #a8845a; --logo-g3: #8a6c4a;
+    --logo-d: #c79e6f;
     color-scheme: dark;
   }
 }
@@ -72,7 +72,7 @@
   --accent-text: #c79e6f;
   --focus: #c79e6f;
   --logo-r: #f2e8d9;
-  --logo-g0: #d9b684; --logo-g1: #c79e6f; --logo-g2: #a8845a; --logo-g3: #8a6c4a;
+  --logo-d: #c79e6f;
   color-scheme: dark;
 }
 
@@ -160,7 +160,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
 .logo { display: inline-flex; align-items: center; line-height: 0; border-radius: 6px; }
-.logo svg { height: 38px; width: auto; display: block; transition: transform 0.2s ease; }
+.logo svg { height: 34px; width: auto; display: block; transition: transform 0.2s ease; }
 .logo:hover svg { transform: translateY(-1px); }
 .nav { display: flex; align-items: center; gap: var(--space-5); font-size: 0.9375rem; }
 .nav a { text-decoration: none; color: var(--muted); padding: var(--space-2) 0; }
