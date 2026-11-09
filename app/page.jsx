@@ -28,32 +28,28 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="top">
         <div className="wrap">
-          <div className="hero-grid">
-            <div>
-              <p className="label">{INTRO.eyebrow}</p>
-              <h1 id="top" className="display">
-                Rishee <br /><span className="second">Deshmukh</span>
-              </h1>
-              <p className="lede">{INTRO.lede}</p>
-              <div className="actions">
-                <a className="btn btn-primary" href={SITE.resume} download><DownloadIcon />Download résumé</a>
-                <a className="btn" href={`mailto:${SITE.email}`}><MailIcon />Email</a>
-                <a className="btn" href={SITE.github} target="_blank" rel="noopener noreferrer"><GitHubIcon />GitHub</a>
-                <a className="btn" href={SITE.linkedin} target="_blank" rel="noopener noreferrer"><LinkedInIcon />LinkedIn</a>
-              </div>
+          <p className="label">{INTRO.eyebrow}</p>
+          <div className="hero-name">
+            <h1 id="top" className="display">
+              Rishee <br /><span className="second">Deshmukh</span>
+            </h1>
+            <div className="portrait">
+              <Image
+                src="/portrait.webp"
+                alt="Portrait of Rishee Deshmukh"
+                width={640}
+                height={640}
+                priority
+                sizes="(max-width: 760px) 104px, 248px"
+              />
             </div>
-            <div className="portrait-wrap">
-              <div className="portrait">
-                <Image
-                  src="/portrait-cutout.webp"
-                  alt="Portrait of Rishee Deshmukh"
-                  width={720}
-                  height={900}
-                  priority
-                  sizes="(max-width: 760px) 136px, 224px"
-                />
-              </div>
-            </div>
+          </div>
+          <p className="lede">{INTRO.lede}</p>
+          <div className="actions">
+            <a className="btn btn-primary" href={SITE.resume} download><DownloadIcon />Download résumé</a>
+            <a className="btn" href={`mailto:${SITE.email}`}><MailIcon />Email</a>
+            <a className="btn" href={SITE.github} target="_blank" rel="noopener noreferrer"><GitHubIcon />GitHub</a>
+            <a className="btn" href={SITE.linkedin} target="_blank" rel="noopener noreferrer"><LinkedInIcon />LinkedIn</a>
           </div>
           <ul className="proof">
             {INTRO.proof.map((p) => (
