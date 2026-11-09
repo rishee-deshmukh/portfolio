@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-int
 // Serif used only for the hero name: it pairs with San Francisco and adds the
 // editorial note. Variable weight with the optical-size axis so large sizes
 // get the finer display cut.
-const newsreader = Newsreader({ subsets: ['latin'], display: 'swap', variable: '--font-name', axes: ['opsz'], adjustFontFallback: false })
+const newsreader = Newsreader({ subsets: ['latin'], style: ['normal', 'italic'], display: 'swap', variable: '--font-name', axes: ['opsz'], adjustFontFallback: false })
 
 const title = `${SITE.name} — ${SITE.role}`
 
