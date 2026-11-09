@@ -1,21 +1,51 @@
 import './globals.css'
+import { Inter, Cormorant_Garamond } from 'next/font/google'
+import { SITE } from '@/content/site'
+import Header from '@/components/Header'
+import RevealObserver from '@/components/RevealObserver'
+
+// Fallback only: Apple devices use San Francisco through the system font stack.
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+
+// Display serif for the name and headings; it pairs with San Francisco and
+// carries the editorial, old-money tone. Weight 500 only (it is a light face).
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], style: ['normal', 'italic'], weight: ['500'], display: 'swap', variable: '--font-serif', adjustFontFallback: false })
+
+const title = `${SITE.name} — ${SITE.role}`
 
 export const metadata = {
-  title: 'Rishee Deshmukh | Software Engineer',
-  description: 'Portfolio of Rishee Deshmukh — Software Engineer building at the intersection of security, AI systems, and web infrastructure.',
-  keywords: ['Software Engineer', 'Full-Stack', 'React', 'Python', 'AI', 'Security', 'Portfolio'],
-  authors: [{ name: 'Rishee Deshmukh' }],
+  metadataBase: new URL(SITE.url),
+  title: { default: title, template: `%s — ${SITE.name}` },
+  description: SITE.description,
+  authors: [{ name: SITE.name }],
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'Rishee Deshmukh | Software Engineer',
-    description: 'Building at the intersection of security, AI systems, and web infrastructure.',
+    title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
     type: 'website',
+    locale: 'en_US',
   },
+  twitter: { card: 'summary_large_image', title, description: SITE.description },
 }
+
+// Runs before first paint: restores a saved theme choice (otherwise the
+// system setting applies through CSS) and flags that JS is available.
+const initScript = `try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t}}catch(e){}document.documentElement.classList.add('js')`
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: initScript }} />
+      </head>
+      <body>
+        <a className="skip" href="#main">Skip to content</a>
+        <Header />
+        <main id="main">{children}</main>
+        <RevealObserver />
+      </body>
     </html>
   )
 }
