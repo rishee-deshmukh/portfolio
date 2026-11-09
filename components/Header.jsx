@@ -1,13 +1,12 @@
 import Link from 'next/link'
 import ThemeToggle from './ThemeToggle'
-import Logo from './Logo'
 import { SITE } from '@/content/site'
 
 export default function Header() {
   return (
     <header className="site-header">
       <div className="wrap">
-        <Link href="/" className="logo" aria-label={`${SITE.name}, home`}><Logo /></Link>
+        <Link href="/" className="logo" aria-label={`${SITE.name}, home`}>RD</Link>
         <nav className="nav" aria-label="Primary">
           <Link href="/#work">Work</Link>
           <Link href="/#experience">Experience</Link>
