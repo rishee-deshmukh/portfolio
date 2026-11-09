@@ -70,6 +70,28 @@
   color-scheme: dark;
 }
 
+/* ── Texture (paper grain) ──────────────────────────────────────
+   A faint tiled grain sits behind the content (never over text or the
+   portrait): warm specks on the cream page, cream specks on the dark
+   themes and the contact band. */
+
+:root { --grain: url("/textures/grain-light.webp"); --grain-o: 0.09; --band-grain-o: 0.12; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --grain: url("/textures/grain-dark.webp"); }
+}
+:root[data-theme="dark"] { --grain: url("/textures/grain-dark.webp"); }
+
+body { position: relative; isolation: isolate; }
+body::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--grain) 0 0 / 192px 192px; opacity: var(--grain-o);
+}
+.band { position: relative; isolation: isolate; }
+.band::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url("/textures/grain-dark.webp") 0 0 / 192px 192px; opacity: var(--band-grain-o);
+}
+
 /* ── Base ───────────────────────────────────────────────────── */
 
 *, *::before, *::after { box-sizing: border-box; }
